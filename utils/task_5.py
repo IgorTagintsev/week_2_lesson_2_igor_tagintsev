@@ -1,8 +1,8 @@
 from functools import reduce
 
 def age(data: list):
-    sum = reduce(lambda x, y: x + y, [member['age'] for member in data])
-    young = reduce(lambda x, y: x if x['age'] < y['age'] else y, data)
-    old = reduce(lambda x, y: x if x['age'] > y['age'] else y, data)
-    return sum, young, old
+    summ = reduce(lambda x, y: x + y, [member['age'] for member in data])
+    young = min(data, key=lambda x: list(x.values())[0])
+    old = max(data, key=lambda x: list(x.values())[0])
+    return summ, young, old
 
